@@ -22,6 +22,7 @@ def main(query ="radiohead"):
     for image in r:
         final.append(image["url"])
     artist = query
+    return render_template("home.html",images=final,artist=artist)
 
 if __name__=='__main__':
     app.debug = True
