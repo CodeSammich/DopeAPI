@@ -19,6 +19,7 @@ def main(query ="radiohead"):
     result = request.read()
     r = json.loads(result)["response"]["images"]
 
-if __name__=='__main__':
-    app.debug = True
-    app.run()
+if (__name__ == "__main__"):
+        app.debug = True
+        app.secret_key = "secret"
+        app.run(host='0.0.0.0', port=8000)
