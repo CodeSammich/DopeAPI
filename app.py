@@ -8,8 +8,7 @@ app = Flask(__name__)
 @app.route("/<query>",methods=["GET","POST"])
 def main(query ="radiohead"):
     #Default query to radiohead
-    basic = """http://developer.echonest.com/api/v4/artist/search
-    ?api_key=V9SVA3AEDH6NCGYXY&format=json&name=""" + query + """&results=1"""
+    basic = """http://developer.echonest.com/api/v4/artist/search?api_key=V9SVA3AEDH6NCGYXY&format=json&name=""" + query + """&results=1"""
     
     #basic API call for searching for artist names
     requesta = urllib2.urlopen(basic)
@@ -17,8 +16,7 @@ def main(query ="radiohead"):
     query = json.loads(resulta)["response"]["artists"]["artist"][0]["name"]
     
     #get first name from API return
-    url="""http://developer.echonest.com/api/v4/artist/images?
-    api_key=V9SVA3AEDH6NCGYXY&name=""" + query + """&format=json"""
+    url="""http://developer.echonest.com/api/v4/artist/images?api_key=V9SVA3AEDH6NCGYXY&name=""" + query + """&format=json"""
     
     #basic API call for search
     request = urllib2.urlopen(url)
