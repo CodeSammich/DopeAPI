@@ -18,6 +18,10 @@ def main(query ="radiohead"):
     request = urllib2.urlopen(url)
     result = request.read()
     r = json.loads(result)["response"]["images"]
+    final = []
+    for image in r:
+        final.append(image["url"])
+    artist = query
 
 if __name__=='__main__':
     app.debug = True
