@@ -27,8 +27,6 @@ def main(query ="radiohead"):
     final = []
     for image in r:
         final.append(image["url"])
-    if len(final) >= 15:
-        final = final[0:15]
         
     artist = query #artist names
     
