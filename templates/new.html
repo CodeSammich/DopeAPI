@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html> 
+  <head>
+    <title>
+      {% if artist %}
+        {{artist}}
+      {% else %}
+        Search
+      {% endif %}
+    </title>
+  </head>
+
+  <body>
+    <table>
+
+    {% if images %}
+      {% for image in images %} 
+        <tr>
+          <td>
+            <img src={{image}} alt="Image of Artist" style="width:200px;height:200px">
+          </td>
+        </tr>
+      {% endfor %}
+    {% endif %}
+
+    </table>
+  </body>
+
+</html>
