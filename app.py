@@ -4,40 +4,48 @@ import json
 
 app = Flask(__name__)
 
+def apiCall(n):
+    request = urllib2.urlopen(n)
+    result = request.read()
+    return json.loads(result)
+
 @app.route("/",methods=["GET","POST"])
 @app.route("/<query>",methods=["GET","POST"])
-def main(query ="radiohead"):
-    #Default query to radiohead
+def main(query =""):
+    if query == "":
+    	return render_template("Artist.html")
+    #handles a lack of a query
+    
     basic = """http://developer.echonest.com/api/v4/artist/search?api_key=V9SVA3AEDH6NCGYXY&format=json&name=""" + query + """&results=1"""
-    
     #basic API call for searching for artist names
-    requesta = urllib2.urlopen(basic)
-    resulta = requesta.read()
-    query = json.loads(resulta)
+    
+    query = apiCall(basic)
+    #find a band of a similar name
+    
     if query["response"]["artists"]:
-        query = json.loads(resulta)["response"]["artists"][0]["name"]
+        query = query["response"]["artists"][0]["name"]
+    #uses a band of the similar name if there is one
     else:
-	query = "radiohead"
-	error = "dang"
+	query = "Radiohead"
+    #defualts query to radiohead if none is found
     
-    #get first name from API return
     url="""http://developer.echonest.com/api/v4/artist/images?api_key=V9SVA3AEDH6NCGYXY&name=""" + query + """&format=json"""
+    #sets API call for image search
     
-    #basic API call for search
-    request = urllib2.urlopen(url)
-    result = request.read()
-    r = json.loads(result)["response"]["images"] #gets images from image dictionary
+    r = apiCall(url)["response"]["images"] #gets images from image dictionary
+    #runs the API call
 
-    #creates array of image urls to reference
+
     final = []
     for image in r:
         final.append(image["url"])
+    #creates array of image urls to reference
+    
     if len(final) > 15:
         final = final[0:16]
-        
-    artist = query #artist names
+    #truncates excess length
     
-    return render_template("Artist.html",images=final,artist=artist)
+    return render_template("Artist.html",images=final,artist=query)
 
 if (__name__ == "__main__"):
         app.debug = True
