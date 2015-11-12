@@ -24,9 +24,9 @@ def main(query =""):
     
     if query["response"]["artists"]:
         query = query["response"]["artists"][0]["name"]
-    #uses a band of the similar name if there is one
     else:
 	query = "Radiohead"
+    #uses a band of the similar name if there is one
     #defualts query to radiohead if none is found
     
     url="""http://developer.echonest.com/api/v4/artist/images?api_key=V9SVA3AEDH6NCGYXY&name=""" + query + """&format=json&license=public-domain"""
@@ -41,8 +41,8 @@ def main(query =""):
         final.append(image["url"])
     #creates array of image urls to reference
     
-    if len(final) > 15:
-        final = final[0:16]
+    if len(final) > 5:
+        final = final[0:6]
     #truncates excess length
     
     return render_template("Artist.html",images=final,artist=query)
