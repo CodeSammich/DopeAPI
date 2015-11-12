@@ -8,8 +8,16 @@
     </title>
   </head>
 
-  <body>
-    <table>
+  <body bgcolor="gold">
+
+    <form method = "GET">
+      Search for and artist: 
+      <input type = "text" name = "artist" placeholder="Albert Mokrejs"></input>
+      <input type="submit" name="button" value="find"></input>
+    </form>
+  </body>
+
+    <table align="center">
 
     {% if images %}
       {% for image in images %} 
@@ -22,12 +30,5 @@
     {% endif %}
 
     </table>
-
-    <form method = "GET">
-      Search for and artist: 
-      <input type = "text" name = "artist" placeholder="Albert Mokrejs"></input>
-      <input type="submit" name="button" value="find"></input>
-    </form>
-  </body>
 
 </html>
