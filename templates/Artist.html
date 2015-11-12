@@ -2,11 +2,7 @@
 <html> 
   <head>
     <title>
-      {% if artist %}
-        {{artist}}
-      {% else %}
-        Search
-      {% endif %}
+      {{artist}}
     </title>
   </head>
 
@@ -14,11 +10,10 @@
     <table>
 
     {% if images %}
-<<<<<<< HEAD
+
     {% for i in images %}
     
     {% endfor %}
-=======
       {% for image in images %} 
         <tr>
           <td>
@@ -26,10 +21,15 @@
           </td>
         </tr>
       {% endfor %}
->>>>>>> 167f2ec25d3ee7c2054011896b73a7dd9f55424a
     {% endif %}
 
     </table>
+
+    <form method = "GET">
+      Search for and artist: 
+      <input type = "text" name = "artist" placeholder="Albert Mokrejs"></input>
+      <input type="submit" name="button" value="find"></input>
+    </form>
   </body>
 
 </html>
