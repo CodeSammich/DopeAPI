@@ -13,7 +13,7 @@ def main(query ="radiohead"):
     #basic API call for searching for artist names
     requesta = urllib2.urlopen(basic)
     resulta = requesta.read()
-    query = json.loads(resulta)["response"]["artists"]["artist"][0]["name"]
+    query = json.loads(resulta)["response"]["artists"][0]["name"]
     
     #get first name from API return
     url="""http://developer.echonest.com/api/v4/artist/images?api_key=V9SVA3AEDH6NCGYXY&name=""" + query + """&format=json"""
@@ -27,8 +27,7 @@ def main(query ="radiohead"):
     final = []
     for image in r:
         final.append(image["url"])
-    if len(final) >= 15:
-        final = final[0:15]
+    del final[15:]
         
     artist = query #artist names
     
