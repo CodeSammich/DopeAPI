@@ -7,8 +7,6 @@ app = Flask(__name__)
 @app.route("/",methods=["GET","POST"])
 @app.route("/<query>",methods=["GET","POST"])
 def main(query ="radiohead"):
-    if query == "radiohead":
-    	return render_template("noArtist.html")
     #Default query to radiohead
     basic = """http://developer.echonest.com/api/v4/artist/search?api_key=V9SVA3AEDH6NCGYXY&format=json&name=""" + query + """&results=1"""
     
