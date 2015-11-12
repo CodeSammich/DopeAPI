@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html> 
+  <head>
+    <title>
+      {% if artist %}
+      {{artist}}
+      {% endif %}
+    </title>
+  </head>
+
+  <body>
+    <table>
+
+    {% if images %}
+      {% for image in images %} 
+        <tr>
+          <td>
+            <img src={{image}} alt="Image of Artist" style="width:200px;height:200px">
+          </td>
+        </tr>
+      {% endfor %}
+    {% endif %}
+
+    </table>
+
+    <form method = "GET">
+      Search for and artist: 
+      <input type = "text" name = "artist" placeholder="Albert Mokrejs"></input>
+      <input type="submit" name="button" value="find"></input>
+    </form>
+  </body>
+
+</html>

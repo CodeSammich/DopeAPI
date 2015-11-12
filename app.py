@@ -37,7 +37,7 @@ def main(query ="radiohead"):
         
     artist = query #artist names
     
-    return render_template("new.html",images=final,artist=artist)
+    return render_template("Artist.html",images=final,artist=artist)
 
 if (__name__ == "__main__"):
         app.debug = True
