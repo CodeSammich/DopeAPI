@@ -10,9 +10,10 @@ def apiCall(n):
     return json.loads(result)
 
 @app.route("/",methods=["GET","POST"])
-@app.route("/<query>",methods=["GET","POST"])
-def main(query =""):
-    if query == "":
+def main():
+    if request.method = "POST":
+    	query = request.form['artist']
+    else:
     	return render_template("Artist.html")
     #handles a lack of a query
     
