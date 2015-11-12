@@ -29,7 +29,7 @@ def main(query =""):
 	query = "Radiohead"
     #defualts query to radiohead if none is found
     
-    url="""http://developer.echonest.com/api/v4/artist/images?api_key=V9SVA3AEDH6NCGYXY&name=""" + query + """&format=json"""
+    url="""http://developer.echonest.com/api/v4/artist/images?api_key=V9SVA3AEDH6NCGYXY&name=""" + query + """&format=json&license=public-domain"""
     #sets API call for image search
     
     r = apiCall(url)["response"]["images"] #gets images from image dictionary
