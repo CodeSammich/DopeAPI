@@ -3,14 +3,33 @@
   <head>
     <title>
       {% if artist %}
-      {{artist}}
+        {{artist}}
+      {% else %}
+        Search
       {% endif %}
     </title>
   </head>
 
   <body>
+    <table>
+
     {% if images %}
+<<<<<<< HEAD
     {% for i in images %}
     
     {% endfor %}
+=======
+      {% for image in images %} 
+        <tr>
+          <td>
+            <img src={{image}} alt="Image of Artist" style="width:200px;height:200px">
+          </td>
+        </tr>
+      {% endfor %}
+>>>>>>> 167f2ec25d3ee7c2054011896b73a7dd9f55424a
     {% endif %}
+
+    </table>
+  </body>
+
+</html>
