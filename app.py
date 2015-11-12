@@ -11,7 +11,7 @@ def apiCall(n):
 
 @app.route("/",methods=["GET","POST"])
 def main():
-    if request.method = "POST":
+    if request.method == "POST":
     	query = request.form['artist']
     else:
     	return render_template("Artist.html")
