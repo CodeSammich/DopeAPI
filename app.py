@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request, requests
+from flask import Flask, render_template, request
 import urllib2
 import json
+import requests
 
 app = Flask(__name__)
 
