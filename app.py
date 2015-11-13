@@ -8,6 +8,15 @@ def apiCall(n):
     request = urllib2.urlopen(n)
     result = request.read()
     return json.loads(result)
+    
+def file_exists(url):
+    request = urllib2.Request(url)
+    request.get_method = lambda : 'HEAD'
+    try:
+        response = urllib2.urlopen(request)
+        return True
+    except:
+        return False
 
 @app.route("/",methods=["GET","POST"])
 def main():
@@ -39,7 +48,8 @@ def main():
 
     final = []
     for image in r:
-        final.append(image["url"])
+    	if file_exists(image["url"]):
+            final.append(image["url"])
     #creates array of image urls to reference
     
     if len(final) > 5:
