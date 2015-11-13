@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import urllib2
 import json
 
@@ -19,10 +19,11 @@ def file_exists(url):
         return False
 
 @app.route("/",methods=["GET","POST"])
-@app.route("/<query>",methods=["GET","POST"])
-def main(query =""):
-    if query == "":
-    	return render_template("Artist.html")
+def main():
+    if request.method != "GET":
+        query = request.form["artist"]
+    else:
+        return render_template("Artist.html")
     #handles a lack of a query
     
     basic = """http://developer.echonest.com/api/v4/artist/search?api_key=V9SVA3AEDH6NCGYXY&format=json&name=""" + query + """&results=1"""
@@ -33,12 +34,12 @@ def main(query =""):
     
     if query["response"]["artists"]:
         query = query["response"]["artists"][0]["name"]
-    #uses a band of the similar name if there is one
     else:
 	query = "Radiohead"
+    #uses a band of the similar name if there is one
     #defualts query to radiohead if none is found
     
-    url="""http://developer.echonest.com/api/v4/artist/images?api_key=V9SVA3AEDH6NCGYXY&name=""" + query + """&format=json&license=public-domain"""
+    url="""http://developer.echonest.com/api/v4/artist/images?api_key=V9SVA3AEDH6NCGYXY&name=""" + query + """&format=json"""
     #sets API call for image search
     
     r = apiCall(url)["response"]["images"] #gets images from image dictionary
@@ -51,8 +52,8 @@ def main(query =""):
             final.append(image["url"])
     #creates array of image urls to reference
     
-    if len(final) > 15:
-        final = final[0:16]
+    if len(final) > 5:
+        final = final[0:6]
     #truncates excess length
     
     return render_template("Artist.html",images=final,artist=query)
