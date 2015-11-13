@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, requests
 import urllib2
 import json
 
@@ -9,14 +9,9 @@ def apiCall(n):
     result = request.read()
     return json.loads(result)
     
-def file_exists(url):
-    request = urllib2.Request(url)
-    request.get_method = lambda : 'HEAD'
-    try:
-        response = urllib2.urlopen(request)
-        return True
-    except:
-        return False
+def file_exists(path):
+    r = requests.head(path)
+    return r.status_code == requests.codes.ok
 
 @app.route("/",methods=["GET","POST"])
 def main():
@@ -48,8 +43,8 @@ def main():
 
     final = []
     for image in r:
-    	#if file_exists(image["url"]):
-        final.append(image["url"])
+    	if file_exists(image["url"]):
+            final.append(image["url"])
     #creates array of image urls to reference
     
     if len(final) > 5:
