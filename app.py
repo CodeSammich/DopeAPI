@@ -48,8 +48,8 @@ def main():
 
     final = []
     for image in r:
-    	if file_exists(image["url"]):
-            final.append(image["url"])
+    	#if file_exists(image["url"]):
+        final.append(image["url"])
     #creates array of image urls to reference
     
     if len(final) > 5:
