@@ -12,7 +12,7 @@ def apiCall(n):
     
 def file_exists(path):
     try:
-    	f = urllib2.urlopen(urllib2.Request(url))
+    	f = urllib2.urlopen(urllib2.Request(path))
         deadLinkFound = False
     except:
         deadLinkFound = True
