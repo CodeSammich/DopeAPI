@@ -11,12 +11,17 @@ def apiCall(n):
     return json.loads(result)
     
 def file_exists(url):
-    request = urllib2.Request(url)
-    request.get_method = lambda : 'HEAD'
     try:
-        response = urllib2.urlopen(request)
-        return True
-    except:
+        headers={
+            "Range": "bytes=0-10",
+            "User-Agent": "MyTestAgent",
+            "Accept":"*/*"
+        }
+
+        req = urllib2.Request(url, headers=headers)
+        response = urllib2.urlopen(req)
+        return response.code in range(200, 209)
+    except Exception, ex:
         return False
 
 @app.route("/",methods=["GET","POST"])
