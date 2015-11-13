@@ -12,7 +12,7 @@ def apiCall(n):
 @app.route("/",methods=["GET","POST"])
 def main():
     if request.method != "GET":
-    	query = request.form['artist']
+    	query = request.form["artist"]
     else:
     	return render_template("Artist.html")
     #handles a lack of a query
