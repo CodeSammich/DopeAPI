@@ -10,13 +10,14 @@ def apiCall(n):
     result = request.read()
     return json.loads(result)
     
-def file_exists(path):
+def file_exists(url):
+    request = urllib2.Request(url)
+    request.get_method = lambda : 'HEAD'
     try:
-    	f = urllib2.urlopen(urllib2.Request(path))
-        deadLinkFound = False
+        response = urllib2.urlopen(request)
+        return True
     except:
-        deadLinkFound = True
-    return not deadLinkFound
+        return False
 
 @app.route("/",methods=["GET","POST"])
 def main():
