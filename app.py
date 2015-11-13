@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 import urllib2
 import json
-import requests
+
 
 app = Flask(__name__)
 
@@ -11,8 +11,12 @@ def apiCall(n):
     return json.loads(result)
     
 def file_exists(path):
-    r = requests.head(path)
-    return r.status_code == requests.codes.ok
+    try:
+    	f = urllib2.urlopen(urllib2.Request(url))
+        deadLinkFound = False
+    except:
+        deadLinkFound = True
+    return deadLinkFound
 
 @app.route("/",methods=["GET","POST"])
 def main():
