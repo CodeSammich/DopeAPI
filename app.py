@@ -16,7 +16,7 @@ def file_exists(path):
         deadLinkFound = False
     except:
         deadLinkFound = True
-    return !deadLinkFound
+    return not deadLinkFound
 
 @app.route("/",methods=["GET","POST"])
 def main():
