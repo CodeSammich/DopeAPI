@@ -10,19 +10,7 @@ def apiCall(n):
     result = request.read()
     return json.loads(result)
     
-def file_exists(url):
-    try:
-        headers={
-            "Range": "bytes=0-10",
-            "User-Agent": "MyTestAgent",
-            "Accept":"*/*"
-        }
 
-        req = urllib2.Request(url, headers=headers)
-        response = urllib2.urlopen(req)
-        return response.code in range(200, 209)
-    except Exception, ex:
-        return False
 
 @app.route("/",methods=["GET","POST"])
 def main():
@@ -54,8 +42,7 @@ def main():
 
     final = []
     for image in r:
-    	if file_exists(image["url"]):
-            final.append(image["url"])
+        final.append(image["url"])
     #creates array of image urls to reference
     
     if len(final) > 5:
