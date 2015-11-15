@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import urllib2
 import json
+import signal
 
 
 app = Flask(__name__)
@@ -9,6 +10,24 @@ def apiCall(n):
     request = urllib2.urlopen(n)
     result = request.read()
     return json.loads(result)
+    
+def timeout(url):
+    class TimeoutError(Exception):
+        pass
+        
+    def handler(signum, frame):
+        raise TimeoutError()
+
+    signal.signal(signal.SIGALRM, handler) 
+    signal.alarm(1)
+    try:
+        result = check_url(url)
+    except TimeoutError as exc:
+        result = False
+    finally:
+        signal.alarm(0)
+
+    return result
     
 def check_url(url):
     try:
@@ -54,7 +73,7 @@ def main():
     final = []
     counter = 0
     for image in r:
-    	if counter < 15 and check_url(image["url"]):
+    	if counter < 15 and timeout(image["url"]):
             final.append(image["url"])
             counter = counter + 1
     #creates array of image urls to reference
