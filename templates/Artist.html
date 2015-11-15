@@ -33,6 +33,50 @@
 
     </table>
 
+
+    <table align="center">
+
+    <tr>
+      <td>
+        Important Tracks:
+      </td>
+    </tr>
+    {% if Tracks %}
+      {% for track in Tracks %} 
+        <tr>
+          <td>
+            track
+          </td>
+        </tr>
+      {% endfor %}
+    {% endif %}
+
+    </table>
+
+    
+    {% if Tracks %}
+      Important Tracks:
+      <ul style="list-style-type:square">
+      {% for track in Tracks %} 
+        <li>
+          track
+        </li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+
+    {% if Tracks %}
+      Important Tracks:
+      <ol type="1">
+      {% for track in Tracks %} 
+        <li>
+          track
+        </li>
+      {% endfor %}
+      </ol>
+    {% endif %}
+
+
   </body>
 
 </html>
