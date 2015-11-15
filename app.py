@@ -57,30 +57,42 @@ def check_url(url):
 
 @app.route("/",methods=["GET","POST"])
 def main():
-    query = "Radiohead"
+    query = "Radiohead" #default query to Radiohead
     if request.method == "POST":
         query = request.form["artist"]
-    #handles a lack of a query
-    query.replace(" ","%20")
+
+    #making spaces (' ') into '%20' for the default case
+    for space in [' ']:
+        query = query.replace(space, "%20")
     
+    #Defaults for radiohead (homepage)
     basic = """http://developer.echonest.com/api/v4/artist/search?api_key=V9SVA3AEDH6NCGYXY&format=json&name=""" + query + """&results=1"""
-    #basic API call for searching for artist names
-    
+
+    #basic API call for searching for default
     query = apiCall(basic)
-    #find a band of a similar name
+
     
+    ###Every search possible
+    #find a band of a similar name   
     if query["response"]["artists"]:
         query = query["response"]["artists"][0]["name"]
     else:
 	query = "Radiohead"
+    artist = query
     #uses a band of the similar name if there is one
     #defualts query to radiohead if none is found
+
+    #making spaces (' ') into '%20'
+    for space in [' ']:
+        query = query.replace(space, "%20")
+    print query
     
     url="""http://developer.echonest.com/api/v4/artist/images?api_key=V9SVA3AEDH6NCGYXY&name=""" + query + """&format=json&results=100"""
     #sets API call for image search
+
     r = apiCall(url)["response"]["images"] #gets images from image dictionary
     #runs the API call
-    
+
     newQuery = apiCall("https://api.spotify.com/v1/search?q=" + query + "&type=artist")["artists"]["items"][0]["id"]
     track = apiCall("https://api.spotify.com/v1/artists/" + newQuery + "/top-tracks?country=US")
 
@@ -122,7 +134,7 @@ def main():
     for T in track["tracks"]:
     	Tracks.append(T["name"])
     
-    return render_template("Artist.html",images=final,artist=query,Tracks = Tracks)
+    return render_template("Artist.html",images=final,artist=artist,Tracks = Tracks)
 
 if (__name__ == "__main__"):
         app.debug = True
