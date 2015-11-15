@@ -88,7 +88,7 @@ def main():
     for image in r:
         #multiprocessing might have to run in __name__ == "main", stackoverflow here:
         #http://stackoverflow.com/questions/14920384/stop-code-after-time-period
-        t1 = multiprocessing.Process( target=check_url, name = "check_url", args=image["url"])
+        t1 = multiprocessing.Process( target=check_url, name = "check_url", args=(image["url"],))
         t1.start()
         time.sleep(.2); #Will wait for 2 seconds to do the .1 second function, just in case
         t1.join(.2); #will also terminate check_url if successfully finished
@@ -99,9 +99,9 @@ def main():
         if t1.is_alive():
             # Terminate check_url if not finished
             t1.terminate()
-            t1.join
+            t1.join()
             valid_image = False
-            print "check_url taking too long, terminated"
+            print "check_url taking too long, terminated\n"
             
     	if counter < 5 and valid_image:
             final.append(image["url"])
