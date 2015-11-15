@@ -9,6 +9,19 @@ import multiprocessing
 app = Flask(__name__)
 
 '''
+Multithreading resources for reference and alternative solutions, in order of usefulness and relevance:
+
+http://stackoverflow.com/questions/14429703/when-to-call-join-on-a-process
+http://stackoverflow.com/questions/15085348/what-is-the-use-of-join-in-python-threading
+http://stackoverflow.com/questions/14920384/stop-code-after-time-period
+http://softwareramblings.com/2008/06/running-functions-as-threads-in-python.html
+http://stackoverflow.com/questions/15460677/python-running-function-in-thread-does-not-modify-current-thread
+http://stackoverflow.com/questions/323972/is-there-any-way-to-kill-a-thread-in-python
+http://stackoverflow.com/questions/492519/timeout-on-a-python-function-call
+
+'''
+
+'''
 #Make check_url calls in main a thread (can be used for all functions)
 #used as FuncThread( <function name only>, <args>)
 class FuncThread(threading.Thread):
