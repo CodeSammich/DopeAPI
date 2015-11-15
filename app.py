@@ -58,7 +58,7 @@ def check_url(url):
 @app.route("/",methods=["GET","POST"])
 def main():
     query = "Radiohead"
-    if request.method != "GET":
+    if request.method == "POST":
         query = request.form["artist"]
     #handles a lack of a query
     
