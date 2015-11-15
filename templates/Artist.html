@@ -21,17 +21,34 @@
       <input type="submit" name="button" value="find"></input>
     </form>
     <br>
-    <table align="center">
 
+{# NOTE: This will get confusing: there will be one huge table split
+into two columns, left for image, right for tracks. Each will be it's
+own table, i.e. 2 tables in 1 huge table. The track one will only have
+tracks, the left will have a picture in each row (tr). This should
+allow for the pictures to be aligned and the tracks next to the 
+pictures, incase there will be more than one picture. #}
+
+    <table align="center">
+    
+    <tr><td>
     {% if images %}
+      <table> {# begins left #}
       {% for image in images %} 
         <tr>
           <td>
             <img src={{image}} alt="Image of Artist">
           </td>
+        </tr>
       {% endfor %}
-        <td>
+      </table> {# This ends the left table #}
+        </td> 
+        <td> 
+        <table> {# closes and opens up a new column for a new table, the tracks #}
+        
         {% if Tracks %}
+        <tr>
+        <td>
           Important Tracks:
           <ol type="1">
             {% for track in Tracks %} 
@@ -41,9 +58,12 @@
             {% endfor %}
           </ol>
         </td>
-        {% endif %}
         </tr>
-
+        {% endif %}
+        
+        </table>
+        </td>
+        </tr>
     {% endif %}
 
     </table>
