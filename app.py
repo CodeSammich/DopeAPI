@@ -8,6 +8,7 @@ import multiprocessing
 
 app = Flask(__name__)
 
+#resrouce links
 '''
 Multithreading resources for reference and alternative solutions, in order of usefulness and relevance:
 
@@ -21,6 +22,7 @@ http://stackoverflow.com/questions/492519/timeout-on-a-python-function-call
 
 '''
 
+#testing threading class
 '''
 #Make check_url calls in main a thread (can be used for all functions)
 #used as FuncThread( <function name only>, <args>)
@@ -33,6 +35,8 @@ class FuncThread(threading.Thread):
     def run(self):
         self._target(*self._args)
 '''
+
+#start of actual code
 def apiCall(n):
     request = urllib2.urlopen(n)
     result = request.read()
