@@ -73,7 +73,7 @@ def main():
     final = []
     counter = 0
     for image in r:
-    	if counter < 6 and timeout(image["url"]):
+    	if counter < 6 and check_url(image["url"]):
             final.append(image["url"])
             counter = counter + 1
     #creates array of image urls to reference
