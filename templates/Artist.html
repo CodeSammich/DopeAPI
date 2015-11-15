@@ -8,7 +8,9 @@
     </title>
   </head>
 
-  <body bgcolor="gold">
+<div style="background-image:url(http://www.musicalityacademy.com/wp-content/uploads/2014/01/music-notes-white-background-wallpaper1.gif);">
+
+  <body bgcolor="silver">
     <h1 align="center">
       {{artist}}
     </h1>
@@ -27,56 +29,27 @@
           <td>
             <img src={{image}} alt="Image of Artist">
           </td>
-        </tr>
       {% endfor %}
+        <td>
+        {% if Tracks %}
+          Important Tracks:
+          <ol type="1">
+            {% for track in Tracks %} 
+              <li>
+                {{track}}
+              </li>
+            {% endfor %}
+          </ol>
+        </td>
+        {% endif %}
+        </tr>
+
     {% endif %}
 
     </table>
-
-
-    <table align="center">
-
-    <tr>
-      <td>
-        Important Tracks:
-      </td>
-    </tr>
-    {% if Tracks %}
-      {% for track in Tracks %} 
-        <tr>
-          <td>
-            track
-          </td>
-        </tr>
-      {% endfor %}
-    {% endif %}
-
-    </table>
-
-    
-    {% if Tracks %}
-      Important Tracks:
-      <ul style="list-style-type:square">
-      {% for track in Tracks %} 
-        <li>
-          track
-        </li>
-      {% endfor %}
-      </ul>
-    {% endif %}
-
-    {% if Tracks %}
-      Important Tracks:
-      <ol type="1">
-      {% for track in Tracks %} 
-        <li>
-          track
-        </li>
-      {% endfor %}
-      </ol>
-    {% endif %}
-
 
   </body>
-
+  
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br> <!-- to extend the background image to the bottom of the page -->
+</div>
 </html>
