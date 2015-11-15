@@ -95,7 +95,7 @@ def main():
         t1.join(2); #will also terminate check_url if successfully finished
         valid_image = True
         
-        if p.is_alive():
+        if t1.is_alive():
             # Terminate check_url if not finished
             t1.terminate()
             t1.join
