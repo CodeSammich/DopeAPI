@@ -61,6 +61,7 @@ def main():
     if request.method == "POST":
         query = request.form["artist"]
     #handles a lack of a query
+    query.replace(" ","\%20")
     
     basic = """http://developer.echonest.com/api/v4/artist/search?api_key=V9SVA3AEDH6NCGYXY&format=json&name=""" + query + """&results=1"""
     #basic API call for searching for artist names
