@@ -94,15 +94,14 @@ def main():
         time.sleep(.2); #Will wait for 2 seconds to do the .1 second function, just in case
         t1.join(.2); #will also terminate check_url if successfully finished
         valid_image = True
-        print "check_url finished\n"
-        print image["url"] + "\n"
+        print "\n" + image["url"] + "\n"
         
         if t1.is_alive():
             # Terminate check_url if not finished
             t1.terminate()
             t1.join()
             valid_image = False
-            print "check_url taking too long, terminated\n"
+            print "check_url taking too long, terminated"
             
     	if counter < 1 and valid_image:
             final.append(image["url"])
