@@ -60,7 +60,7 @@ def main():
     if request.method != "GET":
         query = request.form["artist"]
     else:
-        return render_template("Artist.html")
+        query = "Radiohead"
     #handles a lack of a query
     
     basic = """http://developer.echonest.com/api/v4/artist/search?api_key=V9SVA3AEDH6NCGYXY&format=json&name=""" + query + """&results=1"""
