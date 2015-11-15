@@ -71,7 +71,7 @@ def main():
     for T in track["tracks"]:
     	Tracks.append(T["name"])
     
-    return render_template("Artist.html",images=final,artist=query)
+    return render_template("Artist.html",images=final,artist=query,Tracks = Tracks)
 
 if (__name__ == "__main__"):
         app.debug = True
