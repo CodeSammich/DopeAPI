@@ -100,7 +100,7 @@ def main():
         if t1.is_alive():
             # Terminate check_url if not finished
             t1.terminate()
-            t1.join()
+            t1.join
             valid_image = False
             print "check_url taking too long, terminated\n"
             
