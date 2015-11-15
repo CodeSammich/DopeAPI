@@ -49,10 +49,11 @@ def main():
     
     url="""http://developer.echonest.com/api/v4/artist/images?api_key=V9SVA3AEDH6NCGYXY&name=""" + query + """&format=json&results=100"""
     #sets API call for image search
-    
     r = apiCall(url)["response"]["images"] #gets images from image dictionary
     #runs the API call
-
+    
+    newQuery = apiCall("https://api.spotify.com/v1/search?q=" + query + "&type=artist")["artists"]["items"][0]["id"]
+    track = apiCall("https://api.spotify.com/v1/artists/" + newQuery + "/top-tracks?country=US")
 
     final = []
     counter = 0
@@ -65,6 +66,10 @@ def main():
     if len(final) > 1:
         final = final[0:1]
     #truncates excess length
+    
+    Tracks = []
+    for T in track["tracks"]:
+    	Tracks.append(T["album"]["name"])
     
     return render_template("Artist.html",images=final,artist=query)
 
