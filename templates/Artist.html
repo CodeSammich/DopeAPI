@@ -9,26 +9,30 @@
   </head>
 
   <body bgcolor="gold">
+    <h1 align="center">
+      {{artist}}
+    </h1>
 
     <form method = "POST">
       Search for an artist/band: 
       <input type = "text" name = "artist" placeholder="Radiohead"></input>
       <input type="submit" name="button" value="find"></input>
     </form>
-  </body>
-
+    <br>
     <table align="center">
 
     {% if images %}
       {% for image in images %} 
         <tr>
           <td>
-            <img src={{image}} alt="Image of Artist" style="width:200px;height:200px">
+            <img src={{image}} alt="Image of Artist">
           </td>
         </tr>
       {% endfor %}
     {% endif %}
 
     </table>
+
+  </body>
 
 </html>
