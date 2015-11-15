@@ -11,23 +11,7 @@ def apiCall(n):
     result = request.read()
     return json.loads(result)
     
-def timeout(url):
-    class TimeoutError(Exception):
-        pass
-        
-    def handler(signum, frame):
-        raise TimeoutError()
 
-    signal.signal(signal.SIGALRM, handler) 
-    signal.alarm(1)
-    try:
-        result = check_url(url)
-    except TimeoutError as exc:
-        result = False
-    finally:
-        signal.alarm(0)
-
-    return result
     
 def check_url(url):
     try:
@@ -73,13 +57,13 @@ def main():
     final = []
     counter = 0
     for image in r:
-    	if counter < 6 and check_url(image["url"]):
+    	if counter < 1 and check_url(image["url"]):
             final.append(image["url"])
             counter = counter + 1
     #creates array of image urls to reference
     
-    if len(final) > 5:
-        final = final[0:6]
+    if len(final) > 1:
+        final = final[0:1]
     #truncates excess length
     
     return render_template("Artist.html",images=final,artist=query)
