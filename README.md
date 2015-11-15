@@ -16,7 +16,7 @@ Back End: Albert Mokrejs, Samuel Zhang
 
 | Contributor | Role |
 |:-----------:|:----:|
-| ![Albert Mokrejs]: (https://www.facebook.com/photo.php?fbid=700179553421740&set=a.110070619099306.12066.100002891068047&type=3&theater) | Backend |
-| ![Samuel Zhang]: (https://www.facebook.com/photo.php?fbid=1091968907487880&set=a.151440211540759.25095.100000243424333&type=3&theater) | Backend |
-| ![Ari Hatzimemos]: (https://www.facebook.com/photo.php?fbid=2004306209708289&set=a.108416925963903.10098.100003867890546&type=3&theater) | Frontend / Leader |
-| ![Rong Yu]: (https://www.facebook.com/photo.php?fbid=595674690463262&set=a.204390769591658.50865.100000622105674&type=3&theater) | Frontend |
+| ![Albert Mokrejs] (https://www.facebook.com/photo.php?fbid=700179553421740&set=a.110070619099306.12066.100002891068047&type=3&theater) | Backend |
+| ![Samuel Zhang] (https://www.facebook.com/photo.php?fbid=1091968907487880&set=a.151440211540759.25095.100000243424333&type=3&theater) | Backend |
+| ![Ari Hatzimemos] (https://www.facebook.com/photo.php?fbid=2004306209708289&set=a.108416925963903.10098.100003867890546&type=3&theater) | Frontend / Leader |
+| ![Rong Yu] (https://www.facebook.com/photo.php?fbid=595674690463262&set=a.204390769591658.50865.100000622105674&type=3&theater) | Frontend |
