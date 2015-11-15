@@ -101,12 +101,12 @@ def main():
             t1.join
             valid_image = False
             
-    	if counter < 1 and valid_image:
+    	if counter < 5 and valid_image:
             final.append(image["url"])
             counter = counter + 1
     #creates array of image urls to reference
     
-    if len(final) > 1:
+    if len(final) > 5:
         final = final[0:1]
     #truncates excess length
     
