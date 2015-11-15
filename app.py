@@ -42,6 +42,7 @@ def main():
 
     final = []
     for image in r:
+    	#VALIDITY CHECK GOES HERE
         final.append(image["url"])
     #creates array of image urls to reference
     
