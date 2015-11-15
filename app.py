@@ -63,7 +63,7 @@ def main():
     #uses a band of the similar name if there is one
     #defualts query to radiohead if none is found
     
-    url="""http://developer.echonest.com/api/v4/artist/images?api_key=V9SVA3AEDH6NCGYXY&name=""" + query + """&format=json&results=50"""
+    url="""http://developer.echonest.com/api/v4/artist/images?api_key=V9SVA3AEDH6NCGYXY&name=""" + query + """&format=json&results=100"""
     #sets API call for image search
     
     r = apiCall(url)["response"]["images"] #gets images from image dictionary
@@ -73,7 +73,7 @@ def main():
     final = []
     counter = 0
     for image in r:
-    	if counter < 15 and timeout(image["url"]):
+    	if counter < 6 and timeout(image["url"]):
             final.append(image["url"])
             counter = counter + 1
     #creates array of image urls to reference
