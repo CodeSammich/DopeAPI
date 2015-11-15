@@ -11,12 +11,10 @@ The DopeAPI project makes use of a search-box to make an API-call to EchoNest to
 
 ###Contributors
 
-Front End: Ari Hatzimemos, Rong Yu,
-Back End: Albert Mokrejs, Samuel Zhang
+|                                       |   **Member**   |                   **GitHub**                 |            **Role**            |
+|---------------------------------------|:--------------:|:--------------------------------------------:|:------------------------------:|
+| <img src="images/albert.png" width="100" height="100" /> | Albert Mokrejs   |[`@AlbertMokrejs`](https://github.com/AlbertMokrejs)        | Backend - API Handler  |
+| <img src="images/samuel.png" width="100" height="100" /> | Samuel Zhang |[`@CodeSammich`](https://github.com/CodeSammich)    | Backend - Thread Handler  |
+| <img src="images/ari.png" width="100" height="100" /> | Ari Hatzimemos    |[`@ahatzi`](https://github.com/ahatzi)| Frontend - Overseer |
+| <img src="images/rong.png" width="100" height="100" />  | Rong Yu  |[`@RongYu98`](https://github.com/RongYu98)        | Frontend - Designer  |
 
-| Contributor | Role |
-|:-----------:|:----:|
-| ![Albert Mokrejs] (https://www.facebook.com/photo.php?fbid=700179553421740&set=a.110070619099306.12066.100002891068047&type=3&theater) | Backend |
-| ![Samuel Zhang] (https://www.facebook.com/photo.php?fbid=1091968907487880&set=a.151440211540759.25095.100000243424333&type=3&theater) | Backend |
-| ![Ari Hatzimemos] (https://www.facebook.com/photo.php?fbid=2004306209708289&set=a.108416925963903.10098.100003867890546&type=3&theater) | Frontend / Leader |
-| ![Rong Yu] (https://www.facebook.com/photo.php?fbid=595674690463262&set=a.204390769591658.50865.100000622105674&type=3&theater) | Frontend |
