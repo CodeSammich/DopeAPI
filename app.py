@@ -10,7 +10,18 @@ def apiCall(n):
     result = request.read()
     return json.loads(result)
     
-
+def check_url(url):
+    try:
+        headers={
+            "Range": "bytes=0-10",
+            "User-Agent": "MyTestAgent",
+            "Accept":"*/*"
+        }
+        req = urllib2.Request(url, headers=headers)
+        response = urllib2.urlopen(req)
+        return response.code in range(200, 209)
+    except Exception, ex:
+        return False
 
 @app.route("/",methods=["GET","POST"])
 def main():
@@ -33,7 +44,7 @@ def main():
     #uses a band of the similar name if there is one
     #defualts query to radiohead if none is found
     
-    url="""http://developer.echonest.com/api/v4/artist/images?api_key=V9SVA3AEDH6NCGYXY&name=""" + query + """&format=json"""
+    url="""http://developer.echonest.com/api/v4/artist/images?api_key=V9SVA3AEDH6NCGYXY&name=""" + query + """&format=json&results=50"""
     #sets API call for image search
     
     r = apiCall(url)["response"]["images"] #gets images from image dictionary
@@ -41,9 +52,11 @@ def main():
 
 
     final = []
+    counter = 0
     for image in r:
-    	#VALIDITY CHECK GOES HERE
-        final.append(image["url"])
+    	if counter < 15 and check_url(image["url"]):
+            final.append(image["url"])
+            counter = counter + 1
     #creates array of image urls to reference
     
     if len(final) > 5:
