@@ -69,7 +69,7 @@ def main():
     
     Tracks = []
     for T in track["tracks"]:
-    	Tracks.append(T["album"]["name"])
+    	Tracks.append(T["name"])
     
     return render_template("Artist.html",images=final,artist=query)
 
