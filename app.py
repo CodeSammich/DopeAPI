@@ -78,6 +78,7 @@ def main():
         query = query["response"]["artists"][0]["name"]
     else:
 	query = "Radiohead"
+    artist = query
     #uses a band of the similar name if there is one
     #defualts query to radiohead if none is found
 
@@ -133,7 +134,7 @@ def main():
     for T in track["tracks"]:
     	Tracks.append(T["name"])
     
-    return render_template("Artist.html",images=final,artist=query,Tracks = Tracks)
+    return render_template("Artist.html",images=final,artist=artist,Tracks = Tracks)
 
 if (__name__ == "__main__"):
         app.debug = True
