@@ -5,9 +5,7 @@
 ###APIs Used
 
 - Spotify API
-- Echonest API Key: V9SVA3AEDH6NCGYXY
-
-
+- Echonest API
 
 ###Contributors
 
