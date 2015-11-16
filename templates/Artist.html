@@ -37,32 +37,30 @@ pictures, incase there will be more than one picture. #}
       {% for image in images %} 
         <tr>
           <td>
-            <img src={{image}} alt="Image of Artist">
+            <img src={{image}} style="max-height: 600px; max-width: 60%; display:block;" alt="Image of Artist">
           </td>
         </tr>
       {% endfor %}
-      </table> {# This ends the left table #}
-        </td> 
-        <td> 
-        <table> {# closes and opens up a new column for a new table, the tracks #}
+      </table> {# This ends the left table #} 
+      <table> {# closes and opens up a new column for a new table, the tracks #}
         
         {% if Tracks %}
         <tr>
-        <td>
-          Important Tracks:
-          <ol type="1">
-            {% for track in Tracks %} 
+          <td>
+            Important Tracks:
+            <ol type="1">
+              {% for track in Tracks %} 
               <li>
                 {{track}}
               </li>
-            {% endfor %}
-          </ol>
-        </td>
+              {% endfor %}
+            </ol>
+          </td>
         </tr>
         {% endif %}
         
-        </table>
-        </td>
+      </table>
+      </td>
         </tr>
     {% endif %}
 

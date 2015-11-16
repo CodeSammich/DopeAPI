@@ -100,7 +100,7 @@ def main():
         '''
         t1 = multiprocessing.Process( target=check_url, name = "check_url", args=(image["url"],))
         t1.start()
-        time.sleep(.2);
+        #time.sleep(.2);
         t1.join(.2);
         valid_image = True
         print "\n" + image["url"] + "\n"
