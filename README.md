@@ -18,7 +18,7 @@
 
 ###Algorithm
 
-MusiFind makes use of a search-box to make an API-call to EchoNest to find an artist of a similar name, removing typos and similar errors. 
-Then, it finds a list of image links for the artist selected, and runs through all of them using multiple threads and server calls to make sure they point to valid images. 
-If they do, it adds them to a list of valid images. 
+MusiFind makes use of a search-box to make an API-call to EchoNest to find an artist of a similar name, removing typos and similar errors.   
+Then, it finds a list of image links for the artist selected, and runs through all of them using multiple threads and server calls to make sure they point to valid images.   
+If they do, it adds them to a list of valid images.   
 Finally, the Spotify's API is used to find the top tracks for the artist.
