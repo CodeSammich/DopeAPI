@@ -1,4 +1,4 @@
-# DopeAPI
+# MusiFind
 
 ### Objective: Music Search Engine
 
